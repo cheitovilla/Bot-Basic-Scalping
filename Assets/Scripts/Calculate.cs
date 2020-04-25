@@ -10,23 +10,32 @@ public class Calculate : MonoBehaviour
     public decimal tp; //tps
     public decimal sl; //StopLess
 
+    public Text[] textTp;
+    public Text[] textSL;
+
+    public GameObject Wins;
+    public GameObject Losses;
+ 
     public void CalculateScalping(string value)
     {
         value = entrada.text.ToString();
         value_decimal = decimal.Parse(value);
-        Debug.Log("Valaor decimal: " + value_decimal);
+
+        Wins.SetActive(true);
+        Losses.SetActive(true);
 
         //tps
-        for (int i = 1; i < 100; i++) 
+        for (int i = 1; i < 10; i++) 
         {
             tp = (value_decimal * i / 100) + value_decimal;
-            Debug.Log("tp" + i + "% -> " + tp);
+            textTp[i].text = "TP " + i + "% -> " + tp.ToString();
+
         }
 
-        for (int i = 1; i < 100; i++)
+        for (int i = 1; i < 10; i++)
         {
-            sl = (value_decimal * i / 100) - value_decimal;
-            Debug.Log("Stop Less" + i + "% -> " + sl);
+            sl =  (value_decimal * i / 100) - value_decimal ;
+            textSL[i].text = "SL " + i + "% -> " + sl.ToString();
         }
     }
 
