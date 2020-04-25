@@ -25,19 +25,18 @@ public class Calculate : MonoBehaviour
         Losses.SetActive(true);
 
         //tps
-        for (int i = 1; i < 10; i++) 
+        for (int i = 1; i < 11; i++) 
         {
             tp = (value_decimal * i / 100) + value_decimal;
             textTp[i].text = "TP " + i + "% -> " + tp.ToString();
 
         }
 
-        for (int i = 1; i < 10; i++)
+        //SL
+        for (int i = 1; i < 11; i++)
         {
             sl =  (value_decimal * i / 100) - value_decimal ;
             textSL[i].text = "SL " + i + "% -> " + sl.ToString();
         }
     }
-
-
 }
